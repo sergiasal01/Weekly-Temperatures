@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class WeeklyTemperatures {
+    public static void main(String[] args) {
+        ArrayList<String> daysOfWeek = new ArrayList<>();
+        ArrayList<Double> temperatures = new ArrayList<>();
+
+        Scanner scanner = new Scanner(System.in);
+
+        // Populate arrays with days and temperatures
+        for (int i = 1; i <= 7; i++) {
+            String day = "Day " + i;
+            daysOfWeek.add(day);
+
+            System.out.print("Enter the average temperature for " + day + ": ");
+            double temperature = scanner.nextDouble();
+            temperatures.add(temperature);
+        }
+
+        // Display data based on user input
+        System.out.print("Enter a day of the week (Monday to Sunday) or \"week\": ");
+        String input = scanner.next().toLowerCase();
+
+        if (input.equals("week")) {
+            // Calculate and display weekly average
+            double sum = 0;
+            for (double temp : temperatures) {
+                sum += temp;
+            }
+            double average = sum / 7;
+            System.out.println("Weekly average temperature: " + average);
+
+            // Display temperatures for each day
+            for (int i = 0; i < daysOfWeek.size(); i++) {
+                System.out.println(daysOfWeek.get(i) + ": " + temperatures.get(i));
+            }
+        } else {
+            // Find the index of the day and display its temperature
+            int index = daysOfWeek.indexOf(input.toUpperCase());
+            if (index != -1) {
+                System.out.println(daysOfWeek.get(index) + ": " + temperatures.get(index));
+            } else {
+                System.out.println("Invalid day entered.");
+            }
+        }
+
+        scanner.close();
+    }
+}
