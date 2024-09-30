@@ -1,0 +1,17 @@
+BEGIN
+  Initialize ArrayList days
+  Initialize ArrayList temperatures
+
+  FOR each day of the week
+    Prompt user to enter the day and average temperature
+    Store the day in the days ArrayList
+    Store the temperature in the temperatures ArrayList
+    IF user enters "week"
+      FOR each day in days ArrayList
+        PRINT day and corresponding temperature
+      Calculate average temperature of the week
+      PRINT weekly average temperature
+    END IF
+  END FOR
+
+END
